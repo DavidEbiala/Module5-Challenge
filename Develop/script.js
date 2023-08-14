@@ -30,4 +30,12 @@ onSaveButtonClicked.on('click', function(event){
   localStorage.setItem(time,value);
 });
 
+let now = moment().format("dddd, MMMM Do YYYY");
+let displayDate = document.getElementById("currentDay");
+displayDate.innerHTML = now;
+let currentHour = moment().format("HH");
 
+$(".time-block").each(function() {
+  var timeBlock = $(this).attr("id").split("-")[1];
+
+})
