@@ -1,14 +1,9 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var onSaveButtonClicked = $('.saveBtn');
+var onSaveButtonClicked = document.querySelectorAll('.saveBtn');
 
 $(document).ready(function () {
-  
-  onSaveButtonClicked.on('click', function(){
-      
-  });
-  
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -28,3 +23,11 @@ $(document).ready(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+onSaveButtonClicked.on('click', function(event){
+  event.preventDefault();
+  var value = $(this).siblings(".time-block").val();
+  var time = $(this).parent().attr("id").split("-")[1];
+  localStorage.setItem(time,value);
+});
+
+
